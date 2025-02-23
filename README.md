@@ -1,4 +1,4 @@
-# 📚 Project Portfolio
+# 📚 Portfolio
 
 Hi, I’m To Tran. This portfolio is a collection of my best works, demonstrating my expertise in Data Science and my commitment to delivering high-quality results. 
 
