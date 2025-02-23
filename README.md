@@ -11,7 +11,7 @@ Hi, I’m To Tran. This portfolio is a collection of my best works, demonstratin
 
 |   Project   | Project Overview | Techniques | 
 |---|---|---|
-| 📱 [Telco Customer Churn](https://github.com/totrannguyen/Projects/blob/main/Telco%20Customer%20Churn.ipynb) | Identify hidden patterns in customer retention and then develop predictive models to determine which customers are most likely to churn | EDA, Descriptive Statistics, K-fold Cross Validation, Pipeline, SelectKBest Machine Learning algorithms (Logistic Regression, Decision Tree, Random Forest, SVM, KNN, AdaBoost, XGBoost) | 
+| 📱 [Telco Customer Churn](https://github.com/totrannguyen/Projects/blob/main/Telco%20Customer%20Churn.ipynb) | Identify hidden patterns in customer retention and then develop predictive models to determine which customers are most likely to churn | EDA, K-fold Cross Validation, Pipeline, SelectKBest Machine Learning algorithms (Logistic Regression, Decision Tree, Random Forest, SVM, KNN, AdaBoost, XGBoost) | 
 | 📈 [Stock Market Analysis](https://github.com/totrannguyen/Projects/blob/main/AAPL.ipynb) | Explore the stock market and create predictive models to estimate the highest stock price for each day | Time-series analysis, ARIMA, SARIMA, Auto-ARIMA, Random Forest, XGBoost, Deep Learning (LSTM) |  
 | 🏠 [Housing Prices](https://github.com/totrannguyen/Projects/blob/main/Housing%20Prices.ipynb) | Perform exploratory data analysis, choose the most suitable variables to build a precise and dependable pricing model | EDA, Feature Engineering, SelectKBest, Linear Regression |  
 
