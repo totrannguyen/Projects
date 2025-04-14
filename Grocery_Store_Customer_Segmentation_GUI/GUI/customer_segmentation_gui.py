@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 
 # Load data/model
 df_segments = pd.read_csv("Grocery_Store_Customer_Segmentation_GUI/GUI/df_segments.csv")
-rfm_data = pd.read_csv("rfm_segments.csv")
-df1 = pd.read_csv('Products_with_Categories.csv')
-df2 = pd.read_csv('Transactions.csv')
+rfm_data = pd.read_csv("Grocery_Store_Customer_Segmentation_GUI/GUI/rfm_segments.csv")
+df1 = pd.read_csv('Grocery_Store_Customer_Segmentation_GUI/GUI/Products_with_Categories.csv')
+df2 = pd.read_csv('Grocery_Store_Customer_Segmentation_GUI/GUI/Transactions.csv')
 df = pd.merge(df2, df1, on='productId', how='inner')
 df['purchase_amount'] = df['price'] * df['items']
 product = df.groupby('productName').agg({'price':'mean', 'items':'sum', 'purchase_amount':'sum', 'Category': lambda x: x.mode().iloc[0]}).reset_index()
@@ -188,7 +188,7 @@ elif section == "👪 Customer Segmentation":
     elif option == "📁 Upload file":
         uploaded_file = st.file_uploader("Upload file CSV chứa các thông tin Member_number, Recency, Frequency, Monetary", type="csv")
         if uploaded_file:
-            df_uploaded = pd.read_csv(uploaded_file)
+            df_uploaded = pd.read_csv(Grocery_Store_Customer_Segmentation_GUI/GUI/uploaded_file)
             df_uploaded["Cluster"] = model.predict(df_uploaded[['Recency', 'Frequency', 'Monetary']])
             cluster_names = {0: "Potential", 1: "Lost", 2: "Hardcore", 3: "Loyal", 4: "At Risk"}
             df_uploaded["Segment Name"] = df_uploaded["Cluster"].map(cluster_names)
