@@ -12,7 +12,7 @@ Hi, I’m To Tran. This portfolio is a collection of my best works, demonstratin
 
 |   Project   | Project Overview | Techniques |  GUI | 
 |---|---|---|---|
-| 🥦 [Grocery Store Customer Segmentation](https://github.com/totrannguyen/Projects/tree/main/Grocery_Store_Customer_Segmentation_GUI) | Evaluate clustering algorithms and build a customer segmentation system to identify groups with similar shopping behavior, providing insights to boost engagement and increase revenue | Streamlit, EDA, PySpark, RFM, KMeans, GMM, DBSCAN, Hierarchical Clustering | https://customer-segmentation-gui-jzgvfmxap47pgshkysdy3h.streamlit.app/ |
+| 🥦 [Grocery Store Customer Segmentation](https://github.com/totrannguyen/Projects/tree/main/Grocery_Store_Customer_Segmentation_GUI) | Evaluate clustering algorithms and build a customer segmentation system to identify groups with similar shopping behavior, providing insights to boost engagement and increase revenue | Streamlit, EDA, PySpark, RFM, KMeans, GMM, DBSCAN, Hierarchical Clustering | [Link to Streamlit app](https://customer-segmentation-gui-jzgvfmxap47pgshkysdy3h.streamlit.app/) |
 | 🛒 [Shopee Recommender System](https://github.com/totrannguyen/Projects/tree/main/Shopee_Recommender_System_GUI) | Use Content-based and Collaborative Filtering method to build a recommender system for Shopee users to improve customer shopping experience | Streamlit, EDA, PySpark, Cosine-Similarity, Gensim, Surprise, ALS | 
 
 ***
