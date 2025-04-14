@@ -39,7 +39,7 @@ st.sidebar.markdown("---")
 # 1. Giới thiệu project
 if section == "📚 Overview":
     st.title("👋 Welcome to Customer Segmentation App of a Grocery Store")
-    st.image('Images/grocery_store.jfif', use_container_width =True)
+    st.image('Grocery_Store_Customer_Segmentation_GUI/GUI/Images/grocery_store.jfif', use_container_width =True)
 
     st.subheader("❓ Business")
     st.markdown("Đây là một cửa hàng tạp hóa bán sản phẩm thiết yếu như rau, củ, quả, thịt, cá, trứng, sữa, nước giải khát...  và khách hàng của họ là những người mua lẻ, với mong muốn có thể bán được nhiều hàng hóa hơn cũng như giới thiệu sản phẩm đến đúng đối tượng khách hàng, chăm sóc và làm hài lòng khách hàng.")
@@ -113,7 +113,7 @@ elif section == "📊 Insights & Results":
                     """)
 
     st.markdown("#### 📌 Ngành hàng")
-    st.image('Images/Cate_Analysis.png', use_container_width =True)
+    st.image('Grocery_Store_Customer_Segmentation_GUI/GUI/Images/Cate_Analysis.png', use_container_width =True)
     st.markdown("""
     - Thực phẩm tươi sống đóng góp 1/3 doanh thu
     - Ngàng hàng bán chạy nhất, đóng góp hơn 60% doanh thu : Thực phẩm tươi sống, Sản phẩm từ sữa, Bánh mì & đồ ngọt
@@ -121,14 +121,14 @@ elif section == "📊 Insights & Results":
                     """)
 
     st.markdown("#### 📌 Doanh thu và khách hàng")
-    st.image('Images/Number of Sales Weekly.png', use_container_width =True)
+    st.image('Grocery_Store_Customer_Segmentation_GUI/GUI/Images/Number of Sales Weekly.png', use_container_width =True)
     st.markdown("""
     - Biểu đồ **Tổng doanh thu theo tuần** có sự biến động rõ rệt, nguyên nhân có thể đến từ lượng khách hàng đến mua tại cửa hàng không ổn định. 
     - Nhìn chung doanh thu năm 2015 tăng hơn so với năm 2014.
                     """)
     
-    st.image('Images/Number of Customers Weekly.png', use_container_width =True)
-    st.image('Images/Sales per customer weekly.png', use_container_width =True)
+    st.image('Grocery_Store_Customer_Segmentation_GUI/GUI/Images/Number of Customers Weekly.png', use_container_width =True)
+    st.image('Grocery_Store_Customer_Segmentation_GUI/GUI/Images/Sales per customer weekly.png', use_container_width =True)
     st.markdown("""
     - Biểu đồ **Khách hàng theo tuần** có sự tăng giảm liên tục. 
     - Lượng khách năm 2014 có xu hướng tăng nhẹ nhưng sang năm 2015 biểu đồ có xu hướng giảm, cửa hàng đã mất đi lượng khách.
@@ -142,11 +142,11 @@ elif section == "📊 Insights & Results":
     - Tập trung ở khoảng 2-6 lần mua hàng
     - Phần lớn khách hàng chi dưới 100$, và số lượng khách hàng chi nhiều hơn sẽ giảm dần.
                 """) 
-    st.image('Images/RFM.png', use_container_width =True)
+    st.image('Grocery_Store_Customer_Segmentation_GUI/GUI/Images/RFM.png', use_container_width =True)
 
     st.markdown("Phân chia khách hàng thành 5 nhóm dựa trên mô hình **KMeans**, các giá trị Recency, Frequency, Monetary trung bình, Tỷ lệ số lượng khách hàng của mỗi nhóm và doanh thu đóng góp tương ứng:")
     st.dataframe(rfm_data.head())
-    st.image('Images/customer_segmentation.png', use_container_width =True)
+    st.image('Grocery_Store_Customer_Segmentation_GUI/GUI/Images/customer_segmentation.png', use_container_width =True)
     st.markdown("""
     - **Hardcore** : Chiếm 15% số lượng khách hàng của cửa hàng, nhưng mang lại doanh thu lớn nhất khi mua hàng thường xuyên và chi tiêu rất nhiều  
     - **Loyal** : Là nhóm khách hàng mua hàng thường xuyên, chiếm 31% số lượng  
