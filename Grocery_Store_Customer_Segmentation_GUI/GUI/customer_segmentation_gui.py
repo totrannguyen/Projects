@@ -171,7 +171,7 @@ elif section == "👪 Customer Segmentation":
                 st.success(f"✅ Tìm thấy {len(result_segments)} khách hàng:")
                 st.dataframe(result_segments)
                 st.success(f"✅ Lịch sử giao dịch của {len(result_segments)} khách hàng trên:")
-                st.dataframe(result_trans)
+                st.dataframe(result_trans.sort_values(by='Member_number', ascending=True))
             else:
                st.warning("⚠️ Không tìm thấy khách hàng nào.")
 
@@ -188,7 +188,7 @@ elif section == "👪 Customer Segmentation":
     elif option == "📁 Upload file":
         uploaded_file = st.file_uploader("Upload file CSV chứa các thông tin Member_number, Recency, Frequency, Monetary", type="csv")
         if uploaded_file:
-            df_uploaded = pd.read_csv(Grocery_Store_Customer_Segmentation_GUI/GUI/uploaded_file)
+            df_uploaded = pd.read_csv(uploaded_file)
             df_uploaded["Cluster"] = model.predict(df_uploaded[['Recency', 'Frequency', 'Monetary']])
             cluster_names = {0: "Potential", 1: "Lost", 2: "Hardcore", 3: "Loyal", 4: "At Risk"}
             df_uploaded["Segment Name"] = df_uploaded["Cluster"].map(cluster_names)
@@ -199,6 +199,6 @@ elif section == "👪 Customer Segmentation":
             matched_customers = df[df["Member_number"].isin(df_uploaded['Member_number'])]
             if not matched_customers.empty:
                 st.success(f"✅ Lịch sử giao dịch của {matched_customers['Member_number'].nunique()} khách hàng trên:")
-                st.dataframe(matched_customers)
+                st.dataframe(matched_customers.sort_values(by='Member_number', ascending=True))
             else:
                 st.warning("⚠️ Không tìm thấy lịch sử giao dịch của các khách hàng trên.")
