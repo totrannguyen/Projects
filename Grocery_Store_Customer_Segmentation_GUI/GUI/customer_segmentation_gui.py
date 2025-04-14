@@ -17,7 +17,7 @@ product = df.groupby('productName').agg({'price':'mean', 'items':'sum', 'purchas
 
 @st.cache_resource
 def load_model():
-    with open("kmeans_model.pkl", "rb") as file:
+    with open("Grocery_Store_Customer_Segmentation_GUI/GUI/kmeans_model.pkl", "rb") as file:
         return pickle.load(file)
 
 model = load_model()
