@@ -3,9 +3,19 @@
 Hi, I’m To Tran. This portfolio is a collection of my best works, demonstrating my expertise in Data Science and my commitment to delivering high-quality results. 
 
 ## 📌 List of Sections
+- [GUI](#GUI)
 - [Machine Learning](#machine-learning)
 - [Big Data](#big-data)
 - [SQL](#sql)
+
+# GUI
+
+|   Project   | Project Overview | Techniques |  GUI | 
+|---|---|---|
+| 🥦 [Grocery Store Customer Segmentation](https://github.com/totrannguyen/Projects/tree/main/Grocery_Store_Customer_Segmentation_GUI) |  | Streamlit, EDA, PySpark, RFM, KMeans, GMM, DBSCAN, Hierarchical Clustering | https://customer-segmentation-gui-jzgvfmxap47pgshkysdy3h.streamlit.app/ |
+| 🛒 [Shopee Recommender System](https://github.com/totrannguyen/Projects/tree/main/Shopee_Recommender_System_GUI) |  | Streamlit, EDA, PySpark, Cosine-Similarity, Gensim, Surprise, ALS | 
+
+***
 
 # Machine Learning
 
