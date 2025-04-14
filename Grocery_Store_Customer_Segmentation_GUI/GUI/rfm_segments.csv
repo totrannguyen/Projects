@@ -1,0 +1,6 @@
+Cluster,RecencyMean,FrequencyMean,MonetaryMean,Percent_Quantity,Percent_Revenue
+Potential,192.0,4.0,78.0,27.63,25.51
+Lost,560.0,2.0,37.0,7.72,3.38
+Hardcore,63.0,6.0,176.0,15.42,31.88
+Loyal,55.0,4.0,71.0,30.89,25.96
+At Risk,352.0,3.0,61.0,18.34,13.26
