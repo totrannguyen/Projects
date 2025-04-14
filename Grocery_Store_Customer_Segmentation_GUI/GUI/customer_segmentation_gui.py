@@ -7,7 +7,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Load data/model
-df_segments = pd.read_csv("df_segments.csv")
+df_segments = pd.read_csv("Grocery_Store_Customer_Segmentation_GUI/GUI/df_segments.csv")
 rfm_data = pd.read_csv("rfm_segments.csv")
 df1 = pd.read_csv('Products_with_Categories.csv')
 df2 = pd.read_csv('Transactions.csv')
