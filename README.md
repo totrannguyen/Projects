@@ -35,7 +35,7 @@ Hi, I’m To Tran. This portfolio is a collection of my best works, demonstratin
 |---|---|---|
 | 🎮 [Amazon Video Games](https://github.com/totrannguyen/Projects/blob/main/Amazon%20Video%20Games.ipynb) | Build a model that predicts ratings for Amazon video games a user hasn't interacted with, offering personalized recommendations to boost engagement and satisfaction. | Recommender system, ALS, PySpark | 
 | 🧺 [Instacard Market Basket](https://github.com/totrannguyen/Projects/blob/main/Instacard%20Market%20Basket.ipynb) | Identify association rules in the dataset and develop a recommender system to enhance Instacart's customer shopping experience and drive sales growth. | FPGrowth, Recommender system, PySpark |  
-| 🏷️ [Tag Filter](https://github.com/totrannguyen/Projects/blob/main/NLP%20Tag%20Filter.ipynb) | Create a tag filter using a range of NLP tools, and a classifier to predict the appropriate tag for each question. | Natural Language Processing, PySpark, Pipeline, Naive Bayes |   
+| 🏷️ [Tag Filter](https://github.com/totrannguyen/Projects/blob/main/Tag%20Filter.ipynb) | Create a tag filter using a range of NLP tools, and a classifier to predict the appropriate tag for each question. | Natural Language Processing, PySpark, Pipeline, Naive Bayes |   
 | 🛜 [Social Network Analysis](https://github.com/totrannguyen/Projects/blob/main/Social%20Network%20Analysis.ipynb) | Investigate how GraphX functions and how it can be leveraged to process and analyze large-scale graph data effectively. | GraphX |   
 
 ***
