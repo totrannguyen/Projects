@@ -115,7 +115,7 @@ elif section == "📊 Insights & Results":
         with col4:
             st.markdown(f"""<div style="background-color: #2c2f33; padding: 8px; border-radius: 8px; text-align: center; color: white; line-height: 1.4;">
                                 <div style="font-size: 14px; font-weight: 100;">Doanh thu ($)</div>
-                                <div style="font-size: 30px; color: lightgreen; font-weight: bold;">{f"{round(sum(df['purchase_amount'])/1000000, 2)} M"}</div>
+                                <div style="font-size: 30px; color: lightgreen; font-weight: bold;">{round(sum(df['purchase_amount']))}</div>
                             </div>""", unsafe_allow_html=True)
         st.write("")
         num_rows = st.slider("Chọn số dòng data hiển thị", min_value=1, max_value=100, value=5, step=1)
