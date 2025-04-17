@@ -128,13 +128,13 @@ elif section == "📊 Insights & Results":
         st.markdown("#### 📌 Sản phẩm")
 
         # Vẽ biểu đồ Doanh thu theo sản phẩm
-        top_n_revenue = st.slider("Chọn số lượng sản phẩm hiển thị (doanh thu)", min_value=2, max_value=len(product), value=5, step=1)
+        top_n_revenue = st.slider("Chọn số lượng sản phẩm hiển thị (doanh thu)", min_value=2, max_value=len(product), value=10, step=1)
         top_df_revenue = product.sort_values(by='purchase_amount', ascending=False).head(top_n_revenue)
         draw_barplot(top_df_revenue, 'productName', 'purchase_amount', "Doanh thu theo sản phẩm", "Sản phẩm", "Doanh thu", 'Blues_d', (15, 8))
         st.markdown("- Sản phẩm mang lại doanh thu nhiều nhất : Thịt bò, trái cây nhiệt đới, khăn giấy, phô mai tươi, sô cô la đặc sản")
 
         # Vẽ biểu đồ Lượng sản phẩm tiêu thụ
-        top_n_items = st.slider("Chọn số lượng sản phẩm hiển thị (số lượng)", min_value=2, max_value=len(product), value=5, step=1)
+        top_n_items = st.slider("Chọn số lượng sản phẩm hiển thị (số lượng)", min_value=2, max_value=len(product), value=10, step=1)
         top_df_items = product.sort_values(by='items', ascending=False).head(top_n_items)
         draw_barplot(top_df_items, 'productName', 'items', "Lượng sản phẩm tiêu thụ", "Sản phẩm", "Số lượng tiêu thụ", 'pink', (15, 8))
         st.markdown("""
@@ -143,7 +143,7 @@ elif section == "📊 Insights & Results":
                         """)
         
         # Vẽ biểu đồ Giá sản phẩm
-        top_n_price = st.slider("Chọn số lượng sản phẩm hiển thị (giá bán)", min_value=2, max_value=len(product), value=5, step=1)
+        top_n_price = st.slider("Chọn số lượng sản phẩm hiển thị (giá bán)", min_value=2, max_value=len(product), value=10, step=1)
         top_df_price = product.sort_values(by='price', ascending=False).head(top_n_price)
         draw_barplot(top_df_price, 'productName', 'price', "Giá bán theo sản phẩm", "Sản phẩm", "Giá bán", 'Greens', (15, 8))
         st.markdown("""
