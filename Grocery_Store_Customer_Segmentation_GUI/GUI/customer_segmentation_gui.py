@@ -10,9 +10,9 @@ from datetime import datetime
 
 # Load data/model & preprocessing
 df_segments = pd.read_csv("Grocery_Store_Customer_Segmentation_GUI/GUI/df_segments.csv")
-rfm_segments = pd.read_csv("rfm_segments.csv")
-df1 = pd.read_csv('Products_with_Categories.csv')
-df2 = pd.read_csv('Transactions.csv')
+rfm_segments = pd.read_csv("Grocery_Store_Customer_Segmentation_GUI/GUI/rfm_segments.csv")
+df1 = pd.read_csv('Grocery_Store_Customer_Segmentation_GUI/GUI/Products_with_Categories.csv')
+df2 = pd.read_csv('Grocery_Store_Customer_Segmentation_GUI/GUI/Transactions.csv')
 df = pd.merge(df2, df1, on='productId', how='inner')
 df['purchase_amount'] = df['price'] * df['items']
 df['Date'] = df['Date'].apply(lambda x : datetime.strptime(x, '%d-%m-%Y').date()).astype('datetime64[ns]')
@@ -23,7 +23,7 @@ category['percent_amount'] = category['purchase_amount']/sum(category['purchase_
 
 @st.cache_resource
 def load_model():
-    with open("kmeans_model.pkl", "rb") as file:
+    with open("Grocery_Store_Customer_Segmentation_GUI/GUI/kmeans_model.pkl", "rb") as file:
         return pickle.load(file)
 
 model = load_model()
@@ -62,12 +62,12 @@ st.sidebar.markdown("#### 👩‍🏫 Giảng viên: Cô Khuất Thùy Phương"
 # Ngày báo cáo
 st.sidebar.markdown("#### 📅 Thời gian: 04/2025")
 st.sidebar.markdown("---")
-st.sidebar.image('Images/logo.jpg', use_container_width =True)
+st.sidebar.image('Grocery_Store_Customer_Segmentation_GUI/GUI/Images/logo.jpg', use_container_width =True)
 
 # 1. Giới thiệu project
 if section == "📚 Overview":
     st.title("👋 Welcome to Customer Segmentation App of a Grocery Store")
-    st.image('Images/grocery_store.jfif', use_container_width =True)
+    st.image('Grocery_Store_Customer_Segmentation_GUI/GUI/Images/grocery_store.jfif', use_container_width =True)
 
     st.subheader("❓ Business")
     st.markdown("Đây là một cửa hàng tạp hóa bán sản phẩm thiết yếu như rau, củ, quả, thịt, cá, trứng, sữa, nước giải khát...  và khách hàng của họ là những người mua lẻ, với mong muốn có thể bán được nhiều hàng hóa hơn cũng như giới thiệu sản phẩm đến đúng đối tượng khách hàng, chăm sóc và làm hài lòng khách hàng.")
@@ -152,7 +152,6 @@ elif section == "📊 Insights & Results":
                         """)
 
         st.markdown("#### 📌 Ngành hàng")
-        #st.image('Images/Cate_Analysis.png', use_container_width =True)
         draw_barplot(category, 'Category', 'purchase_amount', "Doanh thu theo ngành hàng", "Ngành hàng", "Doanh thu", 'rocket', (20,8))
         draw_barplot(category.sort_values(by='items', ascending=False), 'Category', 'items', "Lượng sản phẩm đã bán theo ngành hàng", "Ngành hàng", "Số lượng sản phẩm đã bán", 'YlOrBr', (20,8))
         draw_pieplot(category['purchase_amount'], category['Category'], '%1.1f%%', sns.color_palette("Set3", len(category)), 0.8, 'Tỷ lệ doanh thu theo ngành hàng', (8,8))
@@ -180,7 +179,7 @@ elif section == "📊 Insights & Results":
         
     with tab2:
         st.subheader("📌 Phân tích RFM")
-        st.image('Images/RFM.png', use_container_width =True)
+        st.image('Grocery_Store_Customer_Segmentation_GUI/GUI/Images/RFM.png', use_container_width =True)
         st.markdown("""
         - Phần lớn khách hàng đã mua hàng 5 tháng gần đây, biểu đồ Recency lệch phải, đây là tín hiệu tốt cho cửa hàng khi thời gian mua hàng càng xa thì số lượng khách hàng giảm mạnh
         - Tập trung ở khoảng 2-6 lần mua hàng
@@ -224,7 +223,7 @@ elif section == "📊 Insights & Results":
         st.subheader("📌 Kết quả phân cụm khách hàng")
         st.markdown("Phân chia khách hàng thành 5 nhóm dựa trên mô hình **KMeans**, các giá trị Recency, Frequency, Monetary trung bình, Tỷ lệ số lượng khách hàng của mỗi nhóm và Doanh thu đóng góp tương ứng:")
         st.dataframe(rfm_segments.rename(columns={'Cluster':'Nhóm', 'Percent_Quantity':'Tỷ lệ', 'Percent_Revenue':'Doanh thu'}).head())
-        st.image('Images/customer_segmentation.png', use_container_width =True)
+        st.image('Grocery_Store_Customer_Segmentation_GUI/GUI/Images/customer_segmentation.png', use_container_width =True)
         st.markdown("""
         - **Hardcore** : Chiếm 15% số lượng khách hàng của cửa hàng, nhưng mang lại doanh thu lớn nhất khi mua hàng thường xuyên và chi tiêu rất nhiều  
         - **Loyal** : Là nhóm khách hàng mua hàng thường xuyên, chiếm 31% số lượng  
@@ -253,7 +252,7 @@ elif section == "📊 Insights & Results":
                 <p><b>🔍 Đặc điểm RFM:</b> {seg['Đặc điểm']}</p>
                 <p><b>🛠️ Đề xuất tiếp cận:</b> {seg['Phương pháp']}</p>
                 </div>""", unsafe_allow_html=True)
-        st.image('Images/shopping.jfif', use_container_width =True)
+        st.image('Grocery_Store_Customer_Segmentation_GUI/GUI/Images/shopping.jfif', use_container_width =True)
 
 # 3. Tra cứu khách hàng
 elif section == "👪 Customer Segmentation":
