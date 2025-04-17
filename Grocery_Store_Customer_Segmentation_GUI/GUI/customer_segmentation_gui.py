@@ -80,7 +80,7 @@ if section == "📚 Overview":
     - **Frequency**: Số lần mua hàng  
     - **Monetary**: Tổng giá trị đơn hàng  
 
-    Kết hợp phương pháp **RFM** và thuật toán **KMeans**, hệ thống phân nhóm khách hàng giúp tăng hiệu quả trong việc cá nhân hóa chăm sóc, giữ chân khách hàng, đồng thời giúp doanh nghiệp tăng tăng doanh thu.
+    Kết hợp phương pháp **RFM** và thuật toán **Machine Learning**, hệ thống phân nhóm khách hàng giúp tăng hiệu quả trong việc cá nhân hóa chăm sóc, giữ chân khách hàng, đồng thời giúp doanh nghiệp tăng tăng doanh thu.
     """)
 
 # 2. Kết quả
