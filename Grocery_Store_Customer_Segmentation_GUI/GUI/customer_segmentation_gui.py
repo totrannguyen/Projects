@@ -258,6 +258,22 @@ elif section == "📊 Insights & Results":
 elif section == "👪 Customer Segmentation":
     st.title("👪 Tra cứu khách hàng")
 
+    # Mapping chiến lược theo nhóm
+    strategy_mapping = {"Hardcore": {"emoji": "💰","message": "Giữ chân, tăng giá trị đơn hàng thông qua chương trình khách hàng thân thiết cao cấp, dịch vụ cá nhân hóa và cross-sell.","bg_color": "#FFD70022","text_color": "#FFD700"},
+                        "Loyal": {"emoji": "💖","message": "Tăng giá trị đơn hàng bằng tích điểm, combo khuyến mãi, ưu đãi sinh nhật và dịp đặc biệt.","bg_color": "#FF69B422","text_color": "#FF69B4"},
+                        "Potential": {"emoji": "📈","message": "Tăng tần suất mua bằng ưu đãi cá nhân hóa ngắn hạn, gửi tin SMS/email.","bg_color": "#87CEFA22","text_color": "#87CEFA"},
+                        "At Risk": {"emoji": "⚠️","message": "Lôi kéo trở lại bằng khảo sát cải thiện dịch vụ, giảm giá đặc biệt hoặc quà tặng.","bg_color": "#FFA07A22","text_color": "#FFA07A"},
+                        "Lost": {"emoji": "💤","message": "Cân nhắc nguồn lực, khảo sát lý do rời bỏ. Có thể bỏ qua nhóm này nếu chiếm tỷ lệ nhỏ.","bg_color": "#A9A9A922","text_color": "#A9A9A9"}}
+
+    def show_segment_strategy(segment_name, customer_id=None):
+        strategy = strategy_mapping.get(segment_name, None)
+        if strategy:
+            header = f"{strategy['emoji']} <strong>Khách hàng {customer_id} thuộc nhóm {segment_name}</strong>" if customer_id else f"{strategy['emoji']} <strong>Khách hàng thuộc nhóm {segment_name}</strong>"
+            st.markdown(f"""<div style=\"background-color:{strategy['bg_color']}; padding: 12px 20px; border-radius: 12px; margin: 12px 0;\">
+                                <p style=\"color:{strategy['text_color']}; font-size:20px; font-weight:bold; margin-bottom:10px;\">{header}</p>
+                                <p style=\"color:#f0f0f0; font-size:17px;\">🎯 {strategy['message']}</p>
+                            </div>""", unsafe_allow_html=True)
+
     option = st.radio("Chọn phương thức tra cứu:", ["🔑 Nhập mã khách hàng", "✍️ Chọn giá trị RFM", "📁 Upload file"])
 
     if option == "🔑 Nhập mã khách hàng":
@@ -269,10 +285,21 @@ elif section == "👪 Customer Segmentation":
             if not result_segments.empty:
                 st.success(f"✅ Tìm thấy {len(result_segments)} khách hàng:")
                 st.dataframe(result_segments)
-                st.success(f"✅ Lịch sử giao dịch của {len(result_segments)} khách hàng trên:")
-                result_trans=result_trans.merge(result_segments[['Member_number', 'Segment']], on='Member_number', how='left')
-                result_trans=result_trans.rename(columns={'Member_number':'Mã khách hàng',	'Date':'Thời gian',	'productId':'Mã sản phẩm','items':'Số lượng',	'productName':'Sản phẩm','price':'Đơn giá','Category':'Ngành hàng','purchase_amount':'Tổng tiền','Segment':'Nhóm'})
-                st.dataframe(result_trans)
+                
+                # Hiển thị chiến lược theo từng khách hàng
+                for _, row in result_segments.iterrows():
+                    show_segment_strategy(row['Segment'], row['Member_number'])
+
+                if not result_trans.empty:                
+                    st.success(f"✅ Lịch sử giao dịch của {len(result_segments)} khách hàng trên:")
+                    result_trans=result_trans.merge(result_segments[['Member_number', 'Segment']], on='Member_number', how='left')
+                    result_trans=result_trans.rename(columns={'Member_number':'Mã khách hàng',	'Date':'Thời gian',	'productId':'Mã sản phẩm','items':'Số lượng',	'productName':'Sản phẩm','price':'Đơn giá','Category':'Ngành hàng','purchase_amount':'Tổng tiền','Segment':'Nhóm'})
+                    for customer_id in selected_customers:
+                        customer_data = result_trans[result_trans['Mã khách hàng'] == customer_id]
+                        if not customer_data.empty:
+                            with st.expander(f"🔎 Xem chi tiết giao dịch - Mã khách hàng: {customer_id}", expanded=False):
+                                st.dataframe(customer_data)
+                                
             else:
                st.warning("⚠️ Không tìm thấy khách hàng nào.")
 
@@ -284,7 +311,7 @@ elif section == "👪 Customer Segmentation":
         input_df = pd.DataFrame([[recency, frequency, monetary]], columns=["Recency", "Frequency", "Monetary"])
         cluster = model.predict(input_df)[0]
         segment_name = cluster_names.get(cluster, "Unknown")
-        st.success(f"✅ Dự đoán khách hàng thuộc nhóm: **{segment_name}**")
+        show_segment_strategy(segment_name)
 
     elif option == "📁 Upload file":
         uploaded_file = st.file_uploader("Upload file CSV chứa các thông tin Member_number, Recency, Frequency, Monetary", type="csv")
@@ -294,14 +321,22 @@ elif section == "👪 Customer Segmentation":
             cluster_names = {0: "Potential", 1: "Lost", 2: "Hardcore", 3: "Loyal", 4: "At Risk"}
             df_uploaded["Segment"] = df_uploaded["Cluster"].map(cluster_names)
             df_uploaded.drop('Cluster', axis=1, inplace=True)
-            st.success("✅ Kết quả phân nhóm:")
-            st.dataframe(df_uploaded)
-            # Tìm lịch sử giao dịch
+
+            st.success(f"✅ Tìm thấy {df_uploaded.shape[0]} khách hàng:")
+            st.dataframe(df_uploaded[['Member_number', 'Recency', 'Frequency', 'Monetary', 'Segment']])
+
+            for _, row in df_uploaded.iterrows():
+                show_segment_strategy(row['Segment'], row['Member_number'])
+
             matched_customers = df[df["Member_number"].isin(df_uploaded['Member_number'])]
             if not matched_customers.empty:
                 st.success(f"✅ Lịch sử giao dịch của {matched_customers['Member_number'].nunique()} khách hàng trên:")
-                matched_customers=matched_customers.merge(df_uploaded[['Member_number', 'Segment']], on='Member_number', how='left')
-                matched_customers=matched_customers.rename(columns={'Member_number':'Mã khách hàng',	'Date':'Thời gian',	'productId':'Mã sản phẩm','items':'Số lượng',	'productName':'Sản phẩm','price':'Đơn giá','Category':'Ngành hàng','purchase_amount':'Tổng tiền','Segment':'Nhóm'})
-                st.dataframe(matched_customers)
+                matched_customers = matched_customers.merge(df_uploaded[['Member_number', 'Segment']], on='Member_number', how='left')
+                matched_customers = matched_customers.rename(columns={'Member_number': 'Mã khách hàng','Date': 'Thời gian','productId': 'Mã sản phẩm','items': 'Số lượng','productName': 'Sản phẩm','price': 'Đơn giá','Category': 'Ngành hàng','purchase_amount': 'Tổng tiền','Segment': 'Nhóm'})
+                for customer_id in df_uploaded['Member_number']:
+                    customer_data = matched_customers[matched_customers['Mã khách hàng'] == customer_id]
+                    if not customer_data.empty:
+                        with st.expander(f"🔎 Xem chi tiết giao dịch - Mã khách hàng: {customer_id}", expanded=False):
+                            st.dataframe(customer_data)
             else:
                 st.warning("⚠️ Không tìm thấy lịch sử giao dịch của các khách hàng trên.")
