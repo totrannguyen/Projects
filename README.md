@@ -13,7 +13,6 @@ Hi, I’m To Tran. This portfolio is a collection of my best works, demonstratin
 |   Project   | Project Overview | Techniques |  GUI | 
 |---|---|---|---|
 | 🥦 [Grocery Store Customer Segmentation](https://github.com/totrannguyen/Projects/tree/main/Grocery_Store_Customer_Segmentation_GUI) | Take advantage of RFM method, evaluate clustering algorithms and build a customer segmentation system to identify groups with similar shopping behavior, providing insights to boost engagement and increase revenue | Streamlit, EDA, PySpark, RFM, KMeans, GMM, DBSCAN, Hierarchical Clustering | [Link to Streamlit app](https://grocery-store-customer-segmetation.streamlit.app/) |
-| 🛒 [Shopee Recommender System](https://github.com/totrannguyen/Projects/tree/main/Shopee_Recommender_System_GUI) | Use Content-based and Collaborative Filtering method to build a recommender system for Shopee users to improve customer shopping experience | Streamlit, EDA, PySpark, Cosine-Similarity, Gensim, Surprise, ALS | 
 
 ***
 
@@ -26,6 +25,7 @@ Hi, I’m To Tran. This portfolio is a collection of my best works, demonstratin
 | 📈 [Stock Market Analysis](https://github.com/totrannguyen/Projects/blob/main/AAPL.ipynb) | Explore the stock market and create predictive models to estimate the highest stock price for each day | Time-series analysis, ARIMA, SARIMA, Auto-ARIMA, Random Forest, XGBoost, Deep Learning (LSTM) |  
 | 🏠 [Housing Prices](https://github.com/totrannguyen/Projects/blob/main/Housing%20Prices.ipynb) | Perform exploratory data analysis, choose the most suitable variables to build a precise and dependable pricing model | EDA, Feature Engineering, SelectKBest, Linear Regression |
 | 👨‍👩‍👧‍👦 [Mall Customer Segmentation](https://github.com/totrannguyen/Projects/blob/main/Mall%20Customer%20Segmentation.ipynb) | Perform customer segmentation using KMeans Clustering Algorithm and apply Principal Component Analysis to visualize the dataset | Clustering KMeans, PCA |
+| 🛒 [Shopee Recommender System](https://github.com/totrannguyen/Projects/tree/main/Shopee_Recommender_System_GUI) | Use Content-based and Collaborative Filtering method to build a recommender system for Shopee users to improve customer shopping experience | EDA, PySpark, Cosine-Similarity, Gensim, Surprise, ALS |
 
 ***
 
