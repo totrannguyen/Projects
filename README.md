@@ -7,6 +7,7 @@ Hi, I’m To Tran. This portfolio is a collection of my best works, demonstratin
 - [Machine Learning](#machine-learning)
 - [Big Data](#big-data)
 - [SQL](#sql)
+- [Dashboard](#Dashboard)
 
 # GUI
 
@@ -45,3 +46,13 @@ Hi, I’m To Tran. This portfolio is a collection of my best works, demonstratin
 | Project | Project Overview | Techniques | 
 |---|---|---|
 | 📅 [Sakila Database](https://github.com/totrannguyen/Projects/blob/main/Sakila%20Database.ipynb) | This project uses the Sakila database, designed to represent a DVD rental store, to explore the relationships between films, actors, customers, and payments, showcasing my SQL problem-solving skills and proficiency in query writing. | SQL | 
+
+***
+
+# Dashboard
+
+| Project | Project Overview | Techniques | 
+|---|---|---|
+| 📊 [Daily User Tracking](https://lookerstudio.google.com/reporting/1c2c1cfd-d336-482d-b699-514b27b4335f) | This dashboard tracks daily active and new users across channels and platforms, along with conversion rates, providing the business with clear insights into user engagement and acquisition performance | Looker Studio |
+| 📶 []() |  | Power BI | 
+
