@@ -54,5 +54,4 @@ Hi, I’m To Tran. This portfolio is a collection of my best works, demonstratin
 | Project | Project Overview | Techniques | 
 |---|---|---|
 | 📊 [Daily User Tracking](https://github.com/totrannguyen/Projects/blob/main/Dashboard/DAILY_USER_TRACKING_DASHBOARD.pdf) | This dashboard tracks daily active and new users across channels and platforms, along with conversion rates, providing the business with clear insights into user engagement and acquisition performance | Looker Studio |
-| 📶 [CRM](https://github.com/totrannguyen/Projects/blob/main/Dashboard/CRM_DASHBOARD.pdf) | Track revenue, product contract status,  | Power BI | 
-
+| 📶 [CRM](https://github.com/totrannguyen/Projects/blob/main/Dashboard/CRM_DASHBOARD.pdf) | Developed a comprehensive data tracking system to monitor and analyze key business metrics for a furniture company. The system captures and manages data across multiple domains, including revenue, product performance, contract status, customer profiles, and sales team productivity | Power BI |
